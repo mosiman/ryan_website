@@ -1,0 +1,82 @@
+
+body {
+    background-image: url("images/Bred Toes.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left bottom;
+
+}
+
+#rc-logo {
+    position: fixed;
+    top: 75px;
+    left: 75px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 45px;
+    transition: 1s;
+    color: white;
+}
+
+#navlinks {
+    font-family: 'Crimson Text', serif;
+    font-size: 20px;
+    transition: 1s;
+
+}
+
+.navtext {
+    opacity: 0;
+    transition: 1s;
+}
+
+#navlinks ul{
+    opacity: 0.3;
+    transition: 1s;
+}
+
+#rc-logo:hover{
+    font-size:65px;
+}
+#rc-logo:hover ul{
+    opacity: 1;
+}
+#rc-logo:hover span{
+    opacity: 1;
+}
+/*
+#rc-logo:hover {
+    animation-name: rc-logo-hover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+#rc-logo:hover::after {
+    content: "";
+    animation-name: rc-logo-hover-back;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+#rc-logo:hover span {
+    animation-name: rc-logo-navtext-hover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rc-logo-navtext-hover{
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rc-logo-hover{
+    100% {
+        font-size: 65;
+    }
+}
+@keyframes rc-logo-hover-back{
+    100% {
+        font-size: 45;
+    }
+}
+
+*/
