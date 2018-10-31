@@ -1,5 +1,5 @@
 
-#rc-bg {
+#rc-homepage {
     background-image: url("images/Bred Toes.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,6 +9,18 @@
 
 }
 
+#rc-about {
+    background-image: url("images/ryanpic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    width: 100vw;
+    height: 100vh;
+    animation-name: rc-about-load;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+
+}
 #rc-logo {
     position: fixed;
     top: 75px;
@@ -36,6 +48,10 @@
     transition: 1s;
 }
 
+#rc-about:hover{
+    background-position: bottom;
+}
+
 #rc-logo:hover{
     font-size:65px;
 }
@@ -45,6 +61,15 @@
 #rc-logo:hover span{
     opacity: 1;
 }
+
+@keyframes rc-about-load {
+    100% {
+        background-position: bottom;
+    }
+}
+
+
+
 /*
 #rc-logo:hover {
     animation-name: rc-logo-hover;
