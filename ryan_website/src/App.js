@@ -7,7 +7,10 @@ import bredtoes from './images/Bred Toes.jpg';
 import ryanpic from './images/ryanpic.jpg';
 
 // SPA router (react-router)
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+
+// For transitions
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 // importing fontawesome icons
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -28,9 +31,14 @@ class AboutMe extends Component{
     render(){
 
         return (
-            <div id="rc-about">
-                <img src="images/ryanpic.jpg"  alt=""/>
+            <div id="rc-about"
+                className = "page">
+                <img src={ryanpic}  alt=""/>
             </div>
+            // <div id="rc-about" 
+            //     className="page"
+            //     style = {{ backgroundImage: ryanpic }} >
+            // </div>
         );
     };
     
@@ -42,8 +50,13 @@ class Homepage extends Component{
     render() {
         return (
             <div id="rc-homepage"
-                style = {{ backgroundImage: bredtoes }} >
+                className = "page">
+                <img src={bredtoes}  alt=""/>
             </div>
+            // <div id="rc-homepage" 
+            //     className="page"
+            //     style = {{ backgroundImage: bredtoes }} >
+            // </div>
         );
 
     };
@@ -55,7 +68,7 @@ class NavFloat extends Component {
 
     render() {
         return (
-            <div id="rc-logo">
+            <div id="rc-logo" className="page" style={{zIndex: 1}}>
                 <Link to="/" style={linkStyle}> Ryan Chan </Link>
                 <div id="navlinks">
                     <ul>
@@ -83,37 +96,28 @@ class NavFloat extends Component {
     }
 }
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
 class App extends Component {
   render() {
     return (
         <Router>
             <div>
-            <NavFloat />
-
-            <Route exact path="/" component={Homepage} />
-            <Route path="/about" component={AboutMe} />
+                <Route render = {({location}) => (
+                    <TransitionGroup>
+                        <NavFloat />
+                        <CSSTransition
+                            key = {location.key}
+                            timeout={1000}
+                            classNames="fade"
+                        >
+                            <div>
+                                <Switch location = {location}>
+                                    <Route exact path="/" component={Homepage} />
+                                    <Route path="/about" component={AboutMe} />
+                                </Switch>
+                            </div>
+                        </CSSTransition>
+                    </TransitionGroup>
+                )} />
             </div>
         </Router>
     );

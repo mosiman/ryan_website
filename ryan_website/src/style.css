@@ -1,26 +1,34 @@
+.page {
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity:0.5;
+  z-index: -2;
+}
 
+#rc-homepage img{
+    position: absolute;
+    width: 100%;
+    transform: translateY(0%);
+    bottom: 0;
+}
 #rc-homepage {
-    background-image: url("images/Bred Toes.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left bottom;
     width: 100vw;
     height: 100vh;
+}
 
+#rc-about img {
+    position: absolute;
+    width: 100%;
+    transform: translateY(0%);
+    bottom: 0;
 }
 
 #rc-about {
-    background-image: url("images/ryanpic.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top;
     width: 100vw;
     height: 100vh;
-    animation-name: rc-about-load;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-
 }
+
 #rc-logo {
     position: fixed;
     top: 75px;
@@ -48,9 +56,11 @@
     transition: 1s;
 }
 
-#rc-about:hover{
-    background-position: bottom;
+/*
+#rc-about:hover img{
+    transform: translateY(0%);
 }
+*/
 
 #rc-logo:hover{
     font-size:65px;
@@ -62,12 +72,53 @@
     opacity: 1;
 }
 
+/*
 @keyframes rc-about-load {
     100% {
         background-position: bottom;
     }
 }
+*/
 
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms linear 150ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 1000ms linear;
+}
+
+.slide-appear,
+.slide-enter, img{
+    transform: translateY(100%);
+    z-index: 1;
+}
+
+.slide-appear-active,
+.slide-enter.slide-enter-active, img{
+    transform: translateY(0%);
+    transition: transform 10000ms;
+}
+
+.slide-exit, img{
+    transform: translateY(0%);
+}
+.slide-exit.slide-exit-active , img{
+    transform: translateY(-100%);
+    transition: transform 10000ms;
+}
 
 
 /*
